@@ -1,5 +1,5 @@
 from django import forms
-from django_wymeditor.widget import WYMeditorWidget
+from djangocms_wymeditor_plugin.widget import WYMeditorWidget
 
 class WYMeditorForm(forms.Form):
     text = forms.CharField(widget=WYMeditorWidget)
