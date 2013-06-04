@@ -1,2 +1,2 @@
-recursive-include django_wymeditor/static *
-recursive-include django_wymeditor/templates *
+recursive-include djangocms_wymeditor_plugin/static *
+recursive-include djangocms_wymeditor_plugin/templates *
