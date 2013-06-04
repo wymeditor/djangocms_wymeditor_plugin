@@ -1,4 +1,5 @@
 from cms.plugin_base import CMSPluginBase
+from django.conf import settings
 from cms.plugin_pool import plugin_pool
 from cms.models.pluginmodel import CMSPlugin
 from django.utils.translation import ugettext_lazy as _
@@ -9,7 +10,7 @@ class WYMeditorPlugin(CMSPluginBase):
     render_template = "wymeditor_plugin.html"
 
     def render(self, context, instance, placeholder):
-        form = WYMeditorForm()
+        form = WYMeditorForm(settings.WYMEDITOR_SETTINGS)
         context.update({'wymeditor_form': form})
         return context
 
