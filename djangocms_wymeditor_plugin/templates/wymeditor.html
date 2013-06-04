@@ -1,3 +1,5 @@
 <script type="text/javascript">
-  $('.wymeditor').wymeditor();
+  var data_string = JSON.stringify({{customizations|safe}});
+  var data = JSON.parse(data_string);
+  $('.wymeditor').wymeditor(data);
 </script>
