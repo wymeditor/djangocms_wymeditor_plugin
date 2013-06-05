@@ -1,12 +1,12 @@
+import html5lib
 import re
+
+from html5lib import sanitizer, serializer, treebuilders, treewalkers
 
 from django.template.defaultfilters import force_escape
 
 from cms.models import CMSPlugin
 from cms.plugins.utils import downcast_plugins
-
-from html5lib import sanitizer, serializer, treebuilders, treewalkers
-import html5lib
 
 DEFAULT_PARSER = html5lib.HTMLParser(tokenizer=sanitizer.HTMLSanitizer,
                                      tree=treebuilders.getTreeBuilder("dom"))

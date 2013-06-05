@@ -54,4 +54,3 @@ WYM_STYLES = getattr(settings, "WYM_STYLES", WYM_STYLES)
 #Advantageously replaces WYM_CLASSES and WYM_STYLES
 ##Prepare url for wymeditor.css
 WYM_STYLESHEET = getattr(settings, "WYM_STYLESHEET",  '"%s"' % cms_static_url('css/wymeditor.css'))
-

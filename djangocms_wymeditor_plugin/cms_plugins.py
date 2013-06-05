@@ -1,14 +1,16 @@
 from django.conf import settings
 from django.forms import CharField
+from django.utils.translation import ugettext_lazy as _
 
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 from cms.models.pluginmodel import CMSPlugin
-from django.utils.translation import ugettext_lazy as _
-from djangocms_wymeditor_plugin.models import HTMLText
-from djangocms_wymeditor_plugin.widget import WYMeditorWidget
+
 from djangocms_wymeditor_plugin.forms import WYMeditorForm
+from djangocms_wymeditor_plugin.models import HTMLText
 from djangocms_wymeditor_plugin.utils import plugin_tags_to_user_html
+from djangocms_wymeditor_plugin.widget import WYMeditorWidget
+
 
 class WYMeditorPlugin(CMSPluginBase):
     model = HTMLText
@@ -27,10 +29,8 @@ class WYMeditorPlugin(CMSPluginBase):
         return WYMPluginForm
 
     def get_form(self, request, obj=None, **kwargs):
-        plugins = plugin_pool.get_text_enabled_plugins(
-            self.placeholder,
-            self.page
-        )
+        plugins = plugin_pool.get_text_enabled_plugins(self.placeholder,
+                                                       self.page)
 
         form = self.get_form_class(request, plugins)
         kwargs['form'] = form
@@ -41,8 +41,7 @@ class WYMeditorPlugin(CMSPluginBase):
             'body': plugin_tags_to_user_html(instance.body, context,
                                              placeholder),
             'placeholder': placeholder,
-            'object': instance
-            })
+            'object': instance })
         return context
 
     def save_model(self, request, obj, form, change):

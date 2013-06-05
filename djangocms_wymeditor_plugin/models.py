@@ -1,8 +1,11 @@
 from django.db import models
-from cms.models import CMSPlugin
-from django.utils.text import Truncator
 from django.utils.html import strip_tags
+from django.utils.text import Truncator
+
+from cms.models import CMSPlugin
+
 from djangocms_wymeditor_plugin.utils import plugin_tags_to_id_list, clean_html
+
 
 class HTMLText(CMSPlugin):
     body = models.TextField("body")
