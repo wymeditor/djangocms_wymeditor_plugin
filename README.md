@@ -44,8 +44,8 @@ Install
 6. (Optional) Configure custom settings for WYMeditor by adding any of the
    following options to the Django settings file.
 
-    * `WYM_TOOLS`
-    * `WYM_CONTAINERS`
-    * `WYM_CLASSES`
-    * `WYM_STYLES`
-    * `WYM_STYLESHEET`
+* `WYM_TOOLS`
+* `WYM_CONTAINERS`
+* `WYM_CLASSES`
+* `WYM_STYLES`
+* `WYM_STYLESHEET`
