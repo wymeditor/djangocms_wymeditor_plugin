@@ -4,6 +4,13 @@ Django CMS 3 WYMeditor Text Plugin
 A plugin that allows text content to be edited in WYMeditor and saved in Django
 CMS 3. Meant as a replacement for the WYMeditor text plugin in Django CMS 2.
 
+Compatibility
+-------------
+
+At the moment, the only browser the plugin has fully worked in is Google Chrome.
+The editor has not been working correctly in Firefox, and the plugin has not
+been tested in any other browsers.
+
 Install
 -------
 
