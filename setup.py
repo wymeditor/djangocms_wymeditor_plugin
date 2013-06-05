@@ -6,8 +6,8 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 setup(
     name='djangocms_wymeditor_plugin',
     version='0.2.0',
-    author='Nick McLaughlin, ',
-    author_email='n.mclaughlin22@yahoo.com, ',
+    author='Nick McLaughlin, Ani Chan',
+    author_email='n.mclaughlin22@yahoo.com, ani.chan844@gmail.com',
     packages=['djangocms_wymeditor_plugin',],
     url='https://github.com/FriedRice/djangocms_wymeditor_plugin.git',
     license='LICENSE.txt',
