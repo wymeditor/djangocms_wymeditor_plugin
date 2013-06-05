@@ -11,7 +11,8 @@ class WYMeditorWidget(Textarea):
         js = ('%sjquery.js' % settings.STATIC_URL,
               '%sjquery.wymeditor.min.js' % settings.STATIC_URL)
 
-    def __init__(self, customizations=None, attrs=None):
+    def __init__(self, customizations=None, installed_plugins=None,
+                 attrs=None):
         self.customizations = {'basePath': settings.STATIC_URL}
         self.attrs = {'class': 'wymeditor'}
         if attrs:
