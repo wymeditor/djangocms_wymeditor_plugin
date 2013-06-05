@@ -35,7 +35,7 @@ class WYMeditorPlugin(CMSPluginBase):
         form = self.get_form_class(request, plugins)
         kwargs['form'] = form
         return super(WYMeditorPlugin, self).get_form(request, obj, **kwargs)
-        
+
     def render(self, context, instance, placeholder):
         context.update({
             'body': plugin_tags_to_user_html(instance.body, context,

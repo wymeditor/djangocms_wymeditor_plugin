@@ -1,0 +1,2 @@
+#django-cms==3.0.0.beta
+-e git://github.com/divio/django-cms.git@3.0.0.beta#egg=django-cms
