@@ -68,7 +68,7 @@ def plugin_admin_html_to_tags(text):
     into the 'tag' form used in the database
     """
     return OBJ_ADMIN_RE.sub(lambda m: u"{{ plugin_object %s }}"  % m.groups()[0], text)
-    
+
 def replace_plugin_tags(text, id_dict):
     def _replace_tag(m):
         plugin_id = int(m.groups()[0])
@@ -97,7 +97,7 @@ def _plugin_dict(text, regex=OBJ_ADMIN_RE):
 def clean_html(data, full=True, parser=DEFAULT_PARSER):
     """
     Cleans HTML from XSS vulnerabilities using html5lib
-    
+
     If full is False, only the contents inside <body> will be returned (without
     the <body> tags).
     """

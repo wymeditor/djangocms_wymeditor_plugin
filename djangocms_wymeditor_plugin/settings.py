@@ -35,14 +35,14 @@ WYM_CONTAINERS = ",\n".join([
     "{'name': 'BLOCKQUOTE', 'title': 'Blockquote', 'css': 'wym_containers_blockquote'}",
     "{'name': 'TH', 'title': 'Table_Header', 'css': 'wym_containers_th'}",
 ])
-    
+
 WYM_CONTAINERS = getattr(settings, "WYM_CONTAINERS", WYM_CONTAINERS)
 
 WYM_CLASSES = ",\n".join([
     "{'name': 'date', 'title': 'PARA: Date', 'expr': 'p'}",
     "{'name': 'hidden-note', 'title': 'PARA: Hidden note', 'expr': 'p[@class!=\"important\"]'}",
 ])
-    
+
 WYM_STYLES = ",\n".join([
     "{'name': '.hidden-note', 'css': 'color: #999; border: 2px solid #ccc;'}",
     "{'name': '.date', 'css': 'background-color: #ff9; border: 2px solid #ee9;'}",

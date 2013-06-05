@@ -14,7 +14,7 @@ class HTMLText(CMSPlugin):
 
     def clean(self):
         self.body = clean_html(self.body, full=False)
-    
+
     def clean_plugins(self):
         ids = plugin_tags_to_id_list(self.body)
         plugins = CMSPlugin.objects.filter(parent=self)
