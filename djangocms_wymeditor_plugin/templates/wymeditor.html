@@ -1,5 +1,25 @@
 <script type="text/javascript">
-  var data_string = JSON.stringify({{customizations|safe}});
-  var data = JSON.parse(data_string);
-  $('.wymeditor').wymeditor(data);
+  $('#id_{{name}}').wymeditor({
+      basePath: '{{ STATIC_URL }}',
+      updateSelector: 'input[type=submit]',
+      updatEvent: 'click',
+      skinPath: '/static/skins/silver/',
+      logoHtml: '',
+      toolsItems: [ 
+	  {{ WYM_TOOLS }} 
+      ],
+      containersItems: [
+	  {{ WYM_CONTAINERS }}
+      ],
+      classesItems: [
+	  {{ WYM_CLASSES }}
+      ],
+      editorStyles: [
+	  {{ WYM_STYLES }} 
+      ],
+      {% if WYM_STYLESHEET %}
+      stylesheet:
+          {{ WYM_STYLESHEET }},
+      {% endif %}
+  });
 </script>
