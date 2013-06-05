@@ -1,10 +1,7 @@
-from django.conf import settings
 from django.forms import CharField
-from django.utils.translation import ugettext_lazy as _
 
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
-from cms.models.pluginmodel import CMSPlugin
 
 from djangocms_wymeditor_plugin.forms import WYMeditorForm
 from djangocms_wymeditor_plugin.models import HTMLText
