@@ -9,7 +9,8 @@ from django.utils.safestring import mark_safe
 class WYMeditorWidget(Textarea):
     class Media:
         js = ('%sjquery.js' % settings.STATIC_URL,
-              '%sjquery.wymeditor.min.js' % settings.STATIC_URL)
+              '%sjquery.wymeditor.min.js' % settings.STATIC_URL,
+            )
 
     def __init__(self, customizations=None, installed_plugins=None,
                  attrs=None):

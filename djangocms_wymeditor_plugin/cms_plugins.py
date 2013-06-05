@@ -33,7 +33,7 @@ class WYMeditorPlugin(CMSPluginBase):
         )
 
         form = self.get_form_class(request, plugins)
-        kwargs['form'] = form  # override standard form
+        kwargs['form'] = form
         return super(WYMeditorPlugin, self).get_form(request, obj, **kwargs)
         
     def render(self, context, instance, placeholder):
@@ -44,5 +44,9 @@ class WYMeditorPlugin(CMSPluginBase):
             'object': instance
             })
         return context
+
+    def save_model(self, request, obj, form, change):
+        obj.clean_plugins()
+        super(WYMeditorPlugin, self).save_model(request, obj, form, change)
 
 plugin_pool.register_plugin(WYMeditorPlugin)

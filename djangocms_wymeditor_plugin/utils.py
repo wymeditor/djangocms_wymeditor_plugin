@@ -5,6 +5,12 @@ from django.template.defaultfilters import force_escape
 from cms.models import CMSPlugin
 from cms.plugins.utils import downcast_plugins
 
+from html5lib import sanitizer, serializer, treebuilders, treewalkers
+import html5lib
+
+DEFAULT_PARSER = html5lib.HTMLParser(tokenizer=sanitizer.HTMLSanitizer,
+                                     tree=treebuilders.getTreeBuilder("dom"))
+
 OBJ_TAG_RE = re.compile(u"\{\{ plugin_object (\d+) \}\}")
 OBJ_ADMIN_RE_PATTERN = ur'<img [^>]*\bid="plugin_obj_(\d+)"[^>]*/?>'
 OBJ_ADMIN_RE = re.compile(OBJ_ADMIN_RE_PATTERN)
@@ -86,3 +92,21 @@ def _plugin_dict(text, regex=OBJ_ADMIN_RE):
     plugin_ids = plugin_tags_to_id_list(text, regex)
     plugin_list = downcast_plugins(CMSPlugin.objects.filter(pk__in=plugin_ids), select_placeholder=True)
     return dict((plugin.pk, plugin) for plugin in plugin_list)
+
+
+def clean_html(data, full=True, parser=DEFAULT_PARSER):
+    """
+    Cleans HTML from XSS vulnerabilities using html5lib
+    
+    If full is False, only the contents inside <body> will be returned (without
+    the <body> tags).
+    """
+    if full:
+        dom_tree = parser.parse(data)
+    else:
+        dom_tree = parser.parseFragment(data)
+    walker = treewalkers.getTreeWalker("dom")
+    stream = walker(dom_tree)
+    s = serializer.htmlserializer.HTMLSerializer(omit_optional_tags=False,
+                                                 quote_attr_values=True)
+    return u''.join(s.serialize(stream))
